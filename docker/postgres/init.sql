@@ -13,8 +13,9 @@ ALTER ROLE admin SET search_path = alpha;
 GRANT ALL PRIVILEGES ON DATABASE lenquete to rw_user;
 GRANT CONNECT ON DATABASE lenquete TO rw_user;
 GRANT USAGE ON SCHEMA alpha TO rw_user;
+GRANT CREATE ON SCHEMA alpha TO rw_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA alpha TO rw_user;
 GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA alpha TO rw_user;
 GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA alpha TO rw_user;
-ALTER ROLE rw_user SET search_path = alpha;
+ALTER ROLE rw_user SET search_path TO alpha, public; -- allow user to access public schema so Django can create a test DB
 ALTER ROLE rw_user WITH NOINHERIT;
