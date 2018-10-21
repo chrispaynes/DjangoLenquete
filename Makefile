@@ -1,6 +1,6 @@
 .PHONY: appImage appAPIshell appSuperuser databaseImage databaseApplyMigration databaseCreateMigratePolls databaseViewMigratePollsSQL databaseClean
 
-appImage: databaseClean
+appImage:
 	docker-compose build app
 
 appAPIshell:
