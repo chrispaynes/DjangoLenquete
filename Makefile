@@ -1,7 +1,8 @@
 .PHONY: appImage appAPIshell appSuperuser databaseImage databaseApplyMigration databaseCreateMigratePolls databaseViewMigratePollsSQL databaseClean
 
+# sudo to override permission errors on mounted PostgreSQL docker volume
 appImage:
-	docker-compose build app
+	sudo docker-compose build app
 
 appAPIshell:
 	docker-compose exec app bash -c "python3 manage.py shell"
