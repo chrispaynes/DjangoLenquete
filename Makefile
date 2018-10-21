@@ -10,6 +10,9 @@ appAPIshell:
 appSuperuser:
 	docker-compose exec app bash -c "python3 manage.py createsuperuser"
 
+appRunTests:
+	docker-compose exec app bash -c "python3 manage.py test polls"
+
 databaseImage: databaseClean
 	docker-compose build postgres
 
