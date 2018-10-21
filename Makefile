@@ -1,4 +1,6 @@
-.PHONY: appImage appAPIshell appSuperuser databaseImage databaseApplyMigration databaseCreateMigratePolls databaseViewMigratePollsSQL databaseClean
+.PHONY: appImage appAPIshell appSuperuser appRunTests databaseImage databaseApplyMigration databaseCreateMigratePolls databaseViewMigratePollsSQL databaseClean djangoFindAdminTemplates
+
+DJANGO_PATH := $(shell python3 -c 'import django; print(django.__path__)' | sed "s/[][]//g")
 
 # sudo to override permission errors on mounted PostgreSQL docker volume
 appImage:
@@ -30,3 +32,6 @@ databaseViewMigratePollsSQL:
 
 databaseClean:
 	sudo rm -rf ./docker/postgres/pgdata
+
+djangoFindAdminTemplates:
+	@echo $(DJANGO_PATH)/contrib/admin/templates/admin/base_site.html
