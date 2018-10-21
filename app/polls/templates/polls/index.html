@@ -1,3 +1,11 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"
+
+<div>
+    <img id="bg" src="{% static 'polls/images/background.png' %}"></img>
+</div>
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
